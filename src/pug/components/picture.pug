@@ -1,6 +1,6 @@
 //- Адаптивное изображение
 //- Пример: +picture("/img/picture@1x.png", "/img/picture-tablet@1x.png", "/img/picture-desktop@1x.png") 
-mixin picture(mobile, tablet="", desktop="")
+mixin picture(mobile, tablet = "", desktop = "", isLazy = true)
   //- Поддерживаемые форматы изображений для адаптации
   - var formatRetina = [".jpg", ".jpeg", ".png"];
 
@@ -51,4 +51,8 @@ mixin picture(mobile, tablet="", desktop="")
       
         source(type="image/avif", srcset=avifMobile + " 1x, " + avifMobile2x + " 2x")
         source(type="image/webp", srcset=webpMobile + " 1x, " + webpMobile2x + " 2x")
-        img(src=mobile, srcset=mobile2x + " 2x", width, height, alt, loading="lazy")&attributes(attributes)
+
+        if isLazy
+          img(src=mobile, srcset=mobile2x + " 2x", width, height, alt, loading="lazy")&attributes(attributes)
+        else
+          img(src=mobile, srcset=mobile2x + " 2x", width, height, alt)&attributes(attributes)

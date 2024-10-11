@@ -3,6 +3,13 @@ $black: #222;
 $white: #fff;
 $accent: #cbcbcb;
 
+// UI-kit
+$color-primary: #007bff;
+$color-secondary: #6c757d;
+$color-danger: #dc3545;
+$color-white: #ffffff;
+
+
 :root {
   --color-black: #{hextorgb($black)};
   --color-white: #{hextorgb($white)};
@@ -17,15 +24,16 @@ $accent: #cbcbcb;
   --color-accent: #{hextorgb($accent)};
 }
 
-.dark-mode {
-  @include dark-mode;
-}
+// При необходимости раскомментировать для включения темной темы
+//.dark-mode {
+//  @include dark-mode;
+//}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    @include dark-mode;
-  }
-}
+//@media (prefers-color-scheme: dark) {
+//  :root {
+//    @include dark-mode;
+//  }
+//}
 
 $font-primary: Roboto, -apple-system, Arial, sans-serif;
 
@@ -50,7 +58,16 @@ $headlines: (
 );
 
 $min-screen: 320px;
-$container-sizes: (sm: 768px, md: 1024px, lg: 1536px);
-$container-grid: 20px;
+$container-sizes: (
+  xs: $min-screen,
+  sm: 576px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1200px,
+  xxl: 1440px,
+  xxxl: 1790px,
+);
+$container-width: 1440;
+$container-grid: 15px;
 
 $transition: all 0.3s ease;

@@ -1,0 +1,9 @@
+mixin button(isLink, href='/', mods=[], baseClass='button')
+  - const modifierClasses = mods.map(mod => `${baseClass}--${mod}`).join(' ')
+
+  if isLink
+    a(class=`${baseClass} ${modifierClasses}`, href=href)
+      block
+  else
+    button(class=`${baseClass} ${modifierClasses}`)
+      block

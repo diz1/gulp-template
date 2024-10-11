@@ -1,0 +1,72 @@
+// Определение переменных
+$button-color: $color-white;
+$button-border: none;
+$button-cursor: pointer;
+
+$button-primary-background-color: $color-primary;
+$button-secondary-background-color: $color-secondary;
+$button-danger-background-color: $color-danger;
+
+$button-padding: 0.5rem 1rem;
+$button-large-padding: 1rem 2rem;
+$button-small-padding: 0.25rem 0.5rem;
+
+// Основной стиль кнопки
+.button {
+  display: flex;
+  align-items: center;
+  padding: $button-padding;
+
+  color: $button-color;
+  text-align: center;
+  text-decoration: none;
+
+  border: $button-border;
+  cursor: $button-cursor;
+
+  transition: $transition;
+
+  &--primary {
+    background-color: $color-primary;
+
+    @include hover {
+      background-color: darken-color($color-primary);
+    }
+
+    &:active {
+      background-color: darken-color($color-primary, 30%);
+    }
+  }
+
+  &--secondary {
+    background-color: $color-secondary;
+
+    @include hover {
+      background-color: darken-color($color-secondary);
+    }
+
+    &:active {
+      background-color: darken-color($color-secondary, 30%);
+    }
+  }
+
+  &--danger {
+    background-color: $color-danger;
+
+    @include hover {
+      background-color: darken-color($color-danger);
+    }
+
+    &:active {
+      background-color: darken-color($color-danger, 30%);
+    }
+  }
+
+  &--large {
+    padding: $button-large-padding;
+  }
+
+  &--small {
+    padding: $button-small-padding;
+  }
+}

@@ -1,0 +1,109 @@
+extends ../layouts/default.pug
+
+block variables
+  - var pageTitle = "UI Kit";
+  - var pageDesc = "";
+  // - var ogType = "website|article";
+
+block content
+  style.
+    main {
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+  header.header
+    .header__container.container
+      h1.header__title UI Kit
+      nav.nav
+        ul.nav__list
+          li.nav__item: a.nav__link(href="/ui-kit.html#buttons") Buttons
+          li.nav__item: a.nav__link(href="/ui-kit.html#inputs") Inputs
+          li.nav__item: a.nav__link(href="/ui-kit.html#toggles") Toggles
+          li.nav__item: a.nav__link(href="/ui-kit.html#cards") Cards
+
+  main.main.container
+    section#buttons.buttons
+      h2.buttons__title Buttons
+      .buttons__group
+        +button(false, '', ['primary', 'large']) Primary Large Button
+        +button(false, '', ['primary']) Primary Button
+        +button(false, '', ['primary', 'small']) Primary Small Button
+      .buttons__group
+        +button(false, '', ['secondary','large']) Secondary Large Button
+        +button(false, '', ['secondary']) Secondary Button
+        +button(false, '', ['secondary', 'small']) Secondary Small Button
+      .buttons__group
+        +button(false, '', ['danger', 'large']) Danger Large Button
+        +button(false, '', ['danger']) Danger Button
+        +button(false, '', ['danger', 'small']) Danger Small Button
+      .buttons__group
+        +button(true, '/', ['primary', 'large']) Primary Large Link
+        +button(true, '/', ['primary']) Primary Link
+        +button(true, '/', ['primary', 'small']) Primary Small Link
+      .buttons__group
+        +button(true, '/', ['secondary', 'large']) Secondary Large Link
+        +button(true, '/', ['secondary']) Secondary Link
+        +button(true, '/', ['secondary', 'small']) Secondary Small Link
+      .buttons__group
+        +button(true, '/', ['danger', 'large']) Danger Large Link
+        +button(true, '/', ['danger']) Danger Link
+        +button(true, '/', ['danger', 'small']) Danger Small Link
+
+    section#inputs.inputs
+      h2.inputs__title Inputs
+      fieldset.fieldset.inputs__fieldset
+        label.label(for="text-input")
+          span.label__text Text Input:
+          input#text-input.input.input--text(type="text", placeholder="Enter text")
+
+        label.label(for="email-input")
+          span.label__text Email Input:
+          input#email-input.input.input--email(type="email", placeholder="Enter email")
+
+        label.label(for="password-input")
+          span.label__text Password Input:
+          input#password-input.input.input--password(type="password", placeholder="Enter password")
+
+        label.label(for="number-input")
+          span.label__text Number Input:
+          input#number-input.input.input--number(type="number", placeholder="Enter number")
+
+        label.label(for="range-input")
+          .range-boundary.range-boundary--min 0
+          .input-range.input-range__container
+            input#range-input.input-range__input(type="range", min="0", max="100", value="50", step="1")
+          .range-boundary.range-boundary--max 100
+
+    section#toggles.toggles
+      h2.toggles__title Toggles
+      fieldset.fieldset.toggles__fieldset
+        label.label
+          input.input.input--checkbox(type="checkbox")
+          span.label__text Checkbox
+        label.label
+          input.input.input--radio(type="radio", name="radio-group")
+          span.label__text Radio Button 1
+        label.label
+          input.input.input--radio(type="radio", name="radio-group")
+          span.label__text Radio Button 2
+
+    section#cards.cards
+      h2.cards__title Cards
+      .cards__item.card
+        h3.card__title Card Title
+        p.card__content This is a card. It contains a title and some text.
+      .cards__item.card
+        h3.card__title Another Card
+        p.card__content This is another card. It also contains some text.
+      .cards__item.card
+        h3.card__title Last Card
+        p.card__content This is the last card in this example.
+
+  footer.footer
+    .footer__container
+      p.footer__text © 2023 UI Kit. All rights reserved.
+
+block scripts
+  script(src="./js/ui-kit.js?v=" + siteVersion, type="module")

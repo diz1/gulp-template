@@ -1,8 +1,6 @@
-@use "sass:map";
-
 .container {
   width: 100%;
-  max-width: map.get($container-sizes, lg);
+  max-width: #{$container-width}px;
   margin: 0 auto;
   padding: 0 $container-grid;
 }
